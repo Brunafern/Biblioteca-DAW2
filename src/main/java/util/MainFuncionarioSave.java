@@ -14,7 +14,6 @@ public class MainFuncionarioSave {
             FuncionarioDAO dao = new FuncionarioDAOImpl(emf);
             Funcionario f = new Funcionario();
 
-            // A matrícula deve ser única, então usamos uma estratégia para gerar um valor diferente
             f.setMatricula("F" + System.nanoTime());
             f.setCargo("Bibliotecário(a)");
 

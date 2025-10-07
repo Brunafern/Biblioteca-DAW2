@@ -14,7 +14,7 @@ public class MainLeitorSave {
         try (EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")) {
             LeitorDAO dao = new LeitorDAOImpl(emf);
             Leitor l = new Leitor();
-            l.setCpf("" + System.nanoTime()); // CPF único
+            l.setCpf("" + System.nanoTime());
             l.setDataNascimento(LocalDate.of(1990, 5, 15));
             dao.save(l);
             System.out.println("Leitor salvo com ID: " + l.getId());

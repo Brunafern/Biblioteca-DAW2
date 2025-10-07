@@ -16,7 +16,7 @@ public class MainEmprestimoSave {
             Emprestimo e = new Emprestimo();
 
             e.setDataRetirada(LocalDateTime.now());
-            e.setDataDevolucao(null); // Um novo empréstimo ainda não foi devolvido
+            e.setDataDevolucao(null);
             e.setStatus("Ativo");
 
             dao.save(e);

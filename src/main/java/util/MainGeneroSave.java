@@ -14,7 +14,6 @@ public class MainGeneroSave {
             GeneroDAO dao = new GeneroDAOImpl(emf);
             Genero g = new Genero();
 
-            // Adicionando um timestamp para facilitar testes repetidos com nomes diferentes
             g.setNome("Aventura " + System.currentTimeMillis());
 
             dao.save(g);

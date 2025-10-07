@@ -15,7 +15,6 @@ public class MainMultaSave {
             MultaDAO dao = new MultaDAOImpl(emf);
             Multa m = new Multa();
 
-            // Usar BigDecimal para valores monetários é a melhor prática
             m.setValor(new BigDecimal("7.50"));
             m.setDescricao("Atraso na devolução do livro ID 1");
             m.setStatus("Pendente");
