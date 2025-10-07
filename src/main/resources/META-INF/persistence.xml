@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.1"
+             xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
+
+    <persistence-unit name="daw" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>entities.Usuario</class>
+        <class>entities.Leitor</class>
+        <class>entities.Funcionario</class>
+        <class>entities.Genero</class>
+        <class>entities.Livro</class>
+        <class>entities.Emprestimo</class>
+        <class>entities.Multa</class>
+
+        <properties>
+
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://ep-patient-bar-adb7fuqz-pooler.c-2.us-east-1.aws.neon.tech:5432/neondb?sslmode=require" />
+            <property name="jakarta.persistence.jdbc.user" value="neondb_owner" />
+            <property name="jakarta.persistence.jdbc.password" value="npg_8TWbXVztuv9h" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+            <property name="hibernate.default_schema" value="public" />
+            <property name="hibernate.c3p0.min_size" value="5" />
+            <property name="hibernate.c3p0.max_size" value="20" />
+            <property name="hibernate.c3p0.timeout" value="3000" />
+            <property name="hibernate.c3p0.max_statements" value="50" />
+            <property name="hibernate.c3p0.idle_test_period" value="300" />
+        </properties>
+    </persistence-unit>
+</persistence>
