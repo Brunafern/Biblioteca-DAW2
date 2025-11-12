@@ -2,10 +2,8 @@ package entities;
 
 import java.math.BigDecimal;
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 
 @Entity
 public class Multa {
@@ -15,6 +13,10 @@ public class Multa {
     private BigDecimal valor;
     private String descricao;
     private String status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "emprestimo_id", nullable = false)
+    private Emprestimo emprestimo;
 
     public Multa() {}
     // Getters e Setters

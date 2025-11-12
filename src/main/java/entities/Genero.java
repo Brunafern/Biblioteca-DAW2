@@ -1,10 +1,9 @@
 package entities;
 
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.Set;
+
+import jakarta.persistence.*;
 
 @Entity
 public class Genero {
@@ -12,6 +11,9 @@ public class Genero {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @ManyToMany(mappedBy = "generos")
+    private Set<Livro> livros;
 
     public Genero() {}
     // Getters e Setters

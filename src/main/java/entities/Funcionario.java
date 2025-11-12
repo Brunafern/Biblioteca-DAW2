@@ -1,11 +1,9 @@
 package entities;
 
+import java.util.List;
 import java.util.Objects;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 
 @Entity
 public class Funcionario {
@@ -15,6 +13,14 @@ public class Funcionario {
     @Column(unique = true)
     private String matricula;
     private String cargo;
+
+    @OneToOne
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private Usuario usuario;
+
+
+    @OneToMany(mappedBy = "funcionario")
+    private List<Emprestimo> emprestimosRegistrados;
 
     public Funcionario() {}
     // Getters e Setters

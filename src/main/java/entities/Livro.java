@@ -1,10 +1,9 @@
 package entities;
 
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.Set;
+
+import jakarta.persistence.*;
 
 @Entity
 public class Livro {
@@ -17,6 +16,19 @@ public class Livro {
     private int numeroPaginas;
     private String edicao;
     private String status;
+
+    @ManyToMany
+    @JoinTable(
+            name = "livro_genero",
+            joinColumns = @JoinColumn(name = "livro_id"),
+            inverseJoinColumns = @JoinColumn(name = "genero_id")
+    )
+    private Set<Genero> generos;
+
+
+    @OneToMany(mappedBy = "livro")
+    private Set<ItemEmprestimo> itensEmprestimo;
+
 
     public Livro() {}
     // Getters e Setters

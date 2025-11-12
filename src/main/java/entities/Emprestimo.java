@@ -1,11 +1,10 @@
 package entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 
 @Entity
 public class Emprestimo {
@@ -15,6 +14,21 @@ public class Emprestimo {
     private LocalDateTime dataRetirada;
     private LocalDateTime dataDevolucao;
     private String status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "leitor_id", nullable = false)
+    private Leitor leitor;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "funcionario_id", nullable = false)
+    private Funcionario funcionario;
+
+    @OneToMany(mappedBy = "emprestimo", cascade = CascadeType.ALL)
+    private List<ItemEmprestimo> itens;
+
+    @OneToMany(mappedBy = "emprestimo", cascade = CascadeType.ALL)
+    private List<Multa> multas;
 
     public Emprestimo() {}
     // Getters e Setters
